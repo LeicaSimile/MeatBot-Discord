@@ -31,11 +31,11 @@ class Bot(object):
     def event_member_join(self):
         async def on_member_join(member):
             server = member.server
-            message = self.get_phrase(phrases.Category.GREET.value)
+            response = self.get_phrase(phrases.Category.GREET.value)
             ctx = GeneralContext(server=server, user=member)
             
-            message = self.parse(message, context=ctx)
-            await self.client.send_message(server, message)
+            response = self.parse(response, context=ctx)
+            await self.client.send_message(server, response)
 
         return on_member_join
 
@@ -61,7 +61,7 @@ class Bot(object):
         Args:
             category(unicode): The phrase category - see enum 'Category' in phrases.py.
         """
-        return self.db.random_line("phrase", "phrases", {"category_id": category})
+        return self.db.random_line("line", "phrases", {"category_id": category})
 
     def parse(self, text, context=None, substitutions=None):
         """ Interprets a string and formats accordingly, substitutes values, etc.
@@ -112,9 +112,8 @@ class Bot(object):
         return text
     
     def set_commands(self):
-        self.client.add_cog(general.General(self))
-        self.client.add_cog(general.Debugging(self))
-        self.client.add_cog(music.Music(self))
+        self.client.add_cog(commands.General(self))
+        self.client.add_cog(commands.Debugging(self))
         
     def set_events(self):
         self.client.event(self.event_ready())
