@@ -201,7 +201,7 @@ def parse_optional(text):
                 text = "".join([text[:open_index], text[close_index + 1:]])
             else:
                 text = "".join([text[:open_index], text[open_index + 1:close_index],
-                                ext[close_index + 1:]])
+                                text[close_index + 1:]])
         else:
             done = True
             
