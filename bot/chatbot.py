@@ -106,10 +106,17 @@ class Bot(object):
             substitutions[settings.SERVER_NAME] = ""
 
         for s in substitutions:
+            if not substitutions[s]:
+                substitutions[s] = ""
+                
             text = text.replace(s, substitutions[s])
             logger.debug(f"parse(): {text} (replaced '{s}' with '{substitutions[s]}')")
         
         return text
+
+    async def say(self, destination, message, context=None):
+        message = self.parse(message, context)
+        await self.client.send_message(destination, message)
     
     def set_commands(self):
         self.client.add_cog(commands.General(self))
