@@ -81,7 +81,7 @@ class Bot(object):
         ## Add context variables to substitutions.
         substitutions[settings.BOT_DISPLAY_NAME] = self.client.user.name
         substitutions[settings.BOT_NAME] = self.client.user.display_name
-        substitutions[settings.EMOTE] = ""
+        substitutions[settings.EMOTE] = "/me"
 
         try:
             ## Channel variables
