@@ -20,6 +20,7 @@ class GeneralContext(context.Context):
         attrs["prefix"] = settings.BOT_PREFIX
         super().__init__(**attrs)
         self.channel = attrs.pop("channel", None)
+        self.context = attrs.pop("context", None)
         self.server = attrs.pop("server", None)
         self.user = attrs.pop("user", None)
 
@@ -27,6 +28,9 @@ class GeneralContext(context.Context):
 
     def _extract_message(self):
         """Assigns some of the message variables to this class's variables."""
+        if self.context:
+            self.message = self.context.message
+            
         if self.message:
             self.channel = self.message.channel if not self.channel else self.channel
             self.server = self.message.server if not self.server else self.server
