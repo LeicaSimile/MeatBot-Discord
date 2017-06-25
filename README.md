@@ -2,7 +2,7 @@
 What started out as a simple greeting script for IRC is now on Discord as a silly bot who tries to hooman. Kinda.
 
 ## Authors
-* Angelica Catalan - [Tumthe3](https://github.com/Tumthe3)
+* Angelica Catalan ([Tumthe3](https://github.com/Tumthe3))
 
 ## License
 MeatBot likes the [MIT License](LICENSE.md), so let's go with that.
