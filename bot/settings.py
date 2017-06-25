@@ -16,7 +16,7 @@ config.read(FILE_CONFIG)
 
 
 BOT_PREFIX = "!"
-BOT_STATUS = f"with my heart | {settings.BOT_PREFIX}help"
+BOT_STATUS = f"with my heart | {BOT_PREFIX}help"
 
 """Settings from config file"""
 BOT_ID = config.get("info", "id")
