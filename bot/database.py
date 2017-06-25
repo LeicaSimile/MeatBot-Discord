@@ -15,9 +15,10 @@ logger = logging.getLogger("database")
 class Category(Enum):
     """Categories in the database"""
     GREET = "3"
-    SHUTDOWN = "9"
     LEFT_SERVER = "5"
+    MENTION = "6,7"
     ONLINE = "8"
+    SHUTDOWN = "9"
 
 
 class Database(object):
