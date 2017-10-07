@@ -6,7 +6,6 @@ import sqlite3
 from enum import Enum
 
 import phrases
-import settings
 
 logging.config.fileConfig("logging.ini")
 logger = logging.getLogger("database")

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 import logging
 import logging.config
@@ -19,6 +20,7 @@ class Bot(object):
         db_file(str): File path of the bot's database. Used to create 'db',
             a Database instance.
     """
+    
     def __init__(self, bot, db_file):
         self.client = bot
         self.db = database.Database(db_file)
@@ -47,11 +49,6 @@ class Bot(object):
 
             status = settings.BOT_STATUS
             await self.client.change_presence(game=discord.Game(name=status))
-
-##            for server in self.client.servers:
-##                message = self.get_phrase(database.Category.ONLINE.value)
-##                message = self.parse(message, {settings.SERVER_NAME: server.name})
-##                await self.client.send_message(server, message)
 
         return on_ready
 
